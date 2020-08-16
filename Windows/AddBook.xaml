@@ -1,0 +1,59 @@
+﻿<Window x:Class="Library_Managment.Windows.AddBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Managment.Windows"
+        mc:Ignorable="d"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+         FontFamily="Segoe UI Emoji"
+        ResizeMode="NoResize" 
+        Title="AddBook"  Height="700" Width="1057">
+    <Grid>
+        <Grid Margin="10,10,835,-112">
+            <StackPanel VerticalAlignment="Top" Margin="15">
+                <TextBox x:Name="TxtBookName" Margin="0,10" materialDesign:HintAssist.Hint="Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtAuthor" Margin="0,10" materialDesign:HintAssist.Hint="Yazici" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtEdition" Margin="0,10" materialDesign:HintAssist.Hint="Buraxilis Ili" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+
+                <TextBox x:Name="TxtPrice" Margin="0,10" materialDesign:HintAssist.Hint="Qiymeti" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtShelf" Margin="0,10" materialDesign:HintAssist.Hint="Ref" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtBarcode" Margin="0,10" materialDesign:HintAssist.Hint="Barkod" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+
+                <ComboBox x:Name="cmbCategory" Width="200" Height="40" materialDesign:HintAssist.Hint="Kateqoriya" Style="{StaticResource MaterialDesignDataGridComboBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" ItemsSource="{Binding Category}"
+    DisplayMemberPath="Name"
+    SelectedValuePath="Id"
+    SelectedValue="{Binding Category}"/>
+
+            </StackPanel>
+            <Button x:Name="addBook" Content="TESDIQLE" Margin="40,356,67,104" Click="addBook_Click"/>
+            <Button x:Name="bookEdit" Content="DEYIS" Margin="40,393,67,70" Click="bookEdit_Click" Visibility="Hidden"/>
+            <Button x:Name="bookDelete" Content="SIL" Margin="40,430,67,30" Click="bookDelete_Click" Visibility="Hidden"/>
+        </Grid>
+        <DataGrid x:Name="grdBooks"  Margin="347,0,10,114" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True" SelectionChanged="grdBooks_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0.10*" Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="0.15*" Header="Barkod" Binding="{Binding Barcode}"/>
+                <DataGridTextColumn Width="0.20*" Header="Ad" Binding="{Binding BookName}"/>
+                <DataGridTextColumn Width="0.20*" Header="Yazici" Binding="{Binding Author}"/>
+                <DataGridTextColumn Width="0.20*" Header="Qiymet" Binding="{Binding Price}"/>
+                <DataGridTextColumn Width="0.10*" Header="Rəf" Binding="{Binding Bookshelf}"/>
+                <DataGridTextColumn Width="0.15*" Header="Il" Binding="{Binding Edition}"/>
+
+                <DataGridTextColumn Width="0.20*" Header="Kateqoriya" Binding="{Binding Category.Name}"/>
+                <materialDesign:DataGridComboBoxColumn/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="txtSearchBook"  materialDesign:HintAssist.Hint="Kitabi adina gore axtar" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Text="{Binding ElementName=grdBooks, Path=SelectedItem.BookName}" HorizontalAlignment="Center" Margin="0,598,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="222" TextChanged="TextBox_TextChanged"/>
+        <Button x:Name="cancelBookEdit" Content="cancel" HorizontalAlignment="Left" Margin="227,615,0,0"   VerticalAlignment="Top" Width="125" Click="cancelBookEdit_Click"/>
+        <TextBox x:Name="txtSearchBarcode"  materialDesign:HintAssist.Hint="Barcodu daxil edin" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Text="{Binding ElementName=grdBooks, Path=SelectedItem.BookName}" HorizontalAlignment="Left" Margin="775,598,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="222" TextChanged="txtSearchBarcode_TextChanged"/>
+
+        <!--<TextBox Margin="26,366,833,169">
+            <TextBox.Text>
+                <Binding Path="BookName" UpdateSourceTrigger="PropertyChanged" Delay="2000" />
+            </TextBox.Text>
+        </TextBox>-->
+    </Grid>
+
+</Window>

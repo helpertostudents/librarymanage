@@ -1,0 +1,20 @@
+﻿Library Managment
+
+
+winexe
+C#
+.cs
+C:\Users\Ali\source\repos\Library-Managment2\obj\Debug\netcoreapp3.1\
+Library_Managment
+none
+false
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+C:\Users\Ali\source\repos\Library-Managment2\App.xaml
+1118337812
+
+3315551102
+215-924100705
+MainWindow.xaml;Windows\AddBook.xaml;Windows\AddCustomer.xaml;Windows\AddUser.xaml;Windows\HomePageWindow.xaml;Windows\HPageWindow.xaml;Windows\IssueBook.xaml;Windows\Login.xaml;Windows\ReportsWindow.xaml;Windows\ReturnBookCustomersWindow.xaml;Windows\ReturnBookWindow.xaml;
+
+False
+

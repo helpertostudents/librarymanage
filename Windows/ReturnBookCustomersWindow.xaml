@@ -1,0 +1,45 @@
+﻿<Window x:Class="Library_Managment.Windows.ReturnBookCustomersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:local="clr-namespace:Library_Managment.Windows"
+        mc:Ignorable="d"
+        Title="ReturnBookCustomersWindow" Height="450" Width="800">
+    <Grid>
+        <dragablz:TabablzControl>
+            <dragablz:TabablzControl.InterTabController>
+                <dragablz:InterTabController/>
+            </dragablz:TabablzControl.InterTabController>
+            <TabItem Header="Bugun">
+                <DataGrid x:Name="todayDataGrid"  Style="{StaticResource MaterialDesignDataGrid}"  Background="{DynamicResource MaterialDesignChipBackground}" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="33.3*" Header="Musterinin Adi" Binding="{Binding CustomerName}"/>
+                        <DataGridTextColumn Width="33.3*" Header="Musterinun Telefonu" Binding="{Binding CustomerTel}"/>
+                        <DataGridTextColumn Width="33.3*" Header="Goturduyu Kitablar" Binding="{Binding CustomerBookNeedsToGiveCount}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Sabah" >
+                <DataGrid x:Name="tomorrowDataGrid"  Style="{StaticResource MaterialDesignDataGrid}"  Background="{DynamicResource MaterialDesignChipBackground}" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="33.3*" Header="Musterinin Adi" Binding="{Binding CustomerName}"/>
+                        <DataGridTextColumn Width="33.3*" Header="Musterinun Telefonu" Binding="{Binding CustomerTel}"/>
+                        <DataGridTextColumn Width="33.3*" Header="Goturduyu Kitablar" Binding="{Binding CustomerBookNeedsToGiveCount}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Gecikenler" >
+                <DataGrid x:Name="needsToGiveDataGrid"  Style="{StaticResource MaterialDesignDataGrid}"  Background="{DynamicResource MaterialDesignChipBackground}" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="33.3*" Header="Musterinin Adi" Binding="{Binding CustomerName}"/>
+                        <DataGridTextColumn Width="33.3*" Header="Musterinun Telefonu" Binding="{Binding CustomerTel}"/>
+                        <DataGridTextColumn Width="33.3*" Header="Goturduyu Kitablar" Binding="{Binding CustomerBookNeedsToGiveCount}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </dragablz:TabablzControl>
+    </Grid>
+</Window>

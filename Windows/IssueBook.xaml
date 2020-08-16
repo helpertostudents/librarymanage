@@ -1,0 +1,46 @@
+﻿<Window x:Class="Library_Managment.Windows.IssueBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Managment.Windows"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+         FontFamily="Segoe UI Emoji"
+        ResizeMode="NoResize" 
+        Title="IssueBook" Height="700" Width="1024">
+    <Grid>
+        <Grid  Margin="10,10,773,322">
+            <TextBox x:Name="txtIssueCustomerName"  Margin="40,102,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" />
+            <TextBox x:Name="txtIssueCustomerCode" Margin="40,53,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Musteri Kodu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" />
+            <TextBox x:Name="txtIssueCustomerSurname" Margin="40,151,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Soy Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
+            <TextBox x:Name="txtIssueCustomerTel" Margin="40,199,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Tel-No" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
+            <TextBox x:Name="txtIssueCustomerEmail" Margin="40,248,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="E-poct" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
+            <TextBox x:Name="txtIssueCustomerId" Margin="40,10,41,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Musteri Id-si" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" TextChanged="txtIssueCustomerId_TextChanged"/>
+
+        </Grid>
+        <Grid  Margin="388,10,388,322">
+            <TextBox x:Name="txtBookPrice" Margin="44,199,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Qiymeti" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" />
+            <TextBox x:Name="txtBookName" Margin="44,150,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Kitab Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
+            <TextBox x:Name="txtBookBarcode" Margin="44,52,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Kitab Barkod" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
+            <TextBox x:Name="txtBookAuthor" Margin="44,101,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Yazici" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44"/>
+            <DatePicker x:Name="txtReturnDate" Margin="0,248,0,0" VerticalAlignment="Top" Width="150" Height="44" materialDesign:HintAssist.Hint="Qaytarma Vaxti" Style="{StaticResource MaterialDesignDatePicker}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+            <TextBox x:Name="txtBookId" Margin="44,10,44,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"  materialDesign:HintAssist.Hint="Kitab Id-si" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18" Height="44" TextChanged="txtBookId_TextChanged" />
+
+        </Grid>
+        <DataGrid x:Name="grdBasket" Margin="0,362,0,0" AutoGenerateColumns="False" CanUserAddRows="False"  IsReadOnly="True" SelectionChanged="grdBasket_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0.10*" Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="0.20*" Header="Kitab Id-si" Binding="{Binding BooksId}"/>
+                <DataGridTextColumn Width="0.20*" Header="Goturme Tarixi" Binding="{Binding IssueDate}"/>
+                <DataGridTextColumn Width="0.20*" Header="Qaytarma Tarixi" Binding="{Binding ReturnDate}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnIssueAddBook" Content="Sebete At" HorizontalAlignment="Left" Margin="722,99,0,0" VerticalAlignment="Top" Height="32" Width="134" Click="btnIssueAddBook_Click"/>
+        <Button x:Name="btnIssueDelete" Content="Sebetden Sil" HorizontalAlignment="Left" Margin="722,151,0,0" VerticalAlignment="Top" Height="32" Width="134" Click="btnIssueDelete_Click"/>
+        <Button x:Name="btnIssueCancel" Content="Sifarisi Legv Et" HorizontalAlignment="Left" Margin="722,202,0,0" VerticalAlignment="Top" Height="32" Width="134" Click="btnIssueCancel_Click" />
+        <Button x:Name="btnIssueAccept" Content="Sifarisi Tesdiqle" HorizontalAlignment="Left" Margin="722,258,0,0" VerticalAlignment="Top" Height="32" Width="134" Click="btnIssueAccept_Click"/>
+
+    </Grid>
+</Window>

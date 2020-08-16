@@ -1,0 +1,39 @@
+﻿<Window x:Class="Library_Managment.Windows.AddCustomer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Managment.Windows"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
+         FontFamily="Segoe UI Emoji"
+        ResizeMode="NoResize" 
+        Title="AddCustomer"  Height="550" Width="1057">
+    <Grid>
+        <Grid Margin="10,10,817,-57">
+            <StackPanel VerticalAlignment="Top" Margin="15">
+                <TextBox x:Name="TxtCusername" Margin="0,10" materialDesign:HintAssist.Hint="Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtCsurname" Margin="0,10" materialDesign:HintAssist.Hint="Soy Adi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtCphone" Margin="0,10" materialDesign:HintAssist.Hint="Tel-No" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtCemail" Margin="0,10" materialDesign:HintAssist.Hint="E-poct" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox x:Name="TxtCcode" materialDesign:HintAssist.Hint="Musteri Kodu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+
+            </StackPanel>
+            <Button x:Name="addCustomers" Content="TƏSDIQLƏ" Margin="40,348,40,151" Click="addCustomers_Click"/>
+            <Button x:Name="editCustomer" Content="DƏYİŞ" Margin="40,350,40,110" Visibility="Hidden" Click="editCustomer_Click" />
+            <Button x:Name="deleteCustomer" Content="SIL" Margin="40,387,40,73"  Visibility="Hidden" Click="deleteCustomer_Click"/>
+        </Grid>
+        <DataGrid x:Name="grdCustomer" Margin="323,0,10,10" AutoGenerateColumns="False" CanUserAddRows="False" SelectionChanged="grdCustomer_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="0.10*" Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="0.20*" Header="Ad" Binding="{Binding CustomerName}"/>
+                <DataGridTextColumn Width="0.20*" Header="Soyad" Binding="{Binding CustomerSurname}"/>
+                <DataGridTextColumn Width="0.20*" Header="Tel-no" Binding="{Binding CustomerTelNo}"/>
+                <DataGridTextColumn Width="0.20*" Header="Epoct" Binding="{Binding CustomerEmail}"/>
+                <DataGridTextColumn Width="0.20*" Header="Musteri Kodu" Binding="{Binding CustomerCode}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
